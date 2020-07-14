@@ -1,0 +1,31 @@
+# Project: base_util
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = ../../devcpp/main.o ../../devcpp/byteutil.o
+LINKOBJ  = ../../devcpp/main.o ../../devcpp/byteutil.o
+LIBS     = -L"D:/soft/devcpp/Dev-Cpp/MinGW64/lib" -L"D:/soft/devcpp/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"D:/soft/devcpp/Dev-Cpp/MinGW64/include" -I"D:/soft/devcpp/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/soft/devcpp/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"G:/cpp_workpase/base_util/include"
+CXXINCS  = -I"D:/soft/devcpp/Dev-Cpp/MinGW64/include" -I"D:/soft/devcpp/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/soft/devcpp/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"D:/soft/devcpp/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++" -I"G:/cpp_workpase/base_util/include"
+BIN      = ../../devcpp/base_util.exe
+CXXFLAGS = $(CXXINCS) -std=c++11
+CFLAGS   = $(INCS) -std=c++11
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+../../devcpp/main.o: main.cpp
+	$(CPP) -c main.cpp -o ../../devcpp/main.o $(CXXFLAGS)
+
+../../devcpp/byteutil.o: source/byteutil.cpp
+	$(CPP) -c source/byteutil.cpp -o ../../devcpp/byteutil.o $(CXXFLAGS)
